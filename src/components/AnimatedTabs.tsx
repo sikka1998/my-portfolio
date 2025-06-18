@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import Hero from "./Hero";
+import Header from "./Header";
 
-const tabs = ['About', 'Projects', 'Skills', 'Contact'];
+const tabs = ["About", "Projects", "Skills", "Contact"];
 
 export default function AnimatedTabs() {
-  const [activeTab, setActiveTab] = useState<string>('About');
+  const [activeTab, setActiveTab] = useState<string>("About");
 
   return (
     <div className="flex flex-col items-center mt-10">
@@ -27,10 +29,15 @@ export default function AnimatedTabs() {
       </div>
 
       <div className="mt-6 text-center text-gray-600 dark:text-gray-300">
-        {activeTab === 'About' && <p>This is the About section.</p>}
-        {activeTab === 'Projects' && <p>This is the Projects section.</p>}
-        {activeTab === 'Skills' && <p>This is the Skills section.</p>}
-        {activeTab === 'Contact' && <p>This is the Contact section.</p>}
+        {activeTab === "About" && (
+          <>
+            <Header />
+            <Hero />
+          </>
+        )}
+        {activeTab === "Projects" && <p>This is the Projects section.</p>}
+        {activeTab === "Skills" && <p>This is the Skills section.</p>}
+        {activeTab === "Contact" && <p>This is the Contact section.</p>}
       </div>
     </div>
   );
