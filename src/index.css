@@ -7,7 +7,8 @@
 /* Global styles */
 @layer base {
   html, body {
-    @apply bg-[#2e1ad9] text-white min-h-screen;
+    @apply min-h-screen text-white;
+    background: linear-gradient(to right, #2e1ad9 67.5%, #d4f365 33%);
   }
 
   h1, h2, h3, h4 {
@@ -34,6 +35,6 @@
   }
 
   .profile-img {
-    @apply w-72 rounded-xl shadow-xl;
+    @apply w-100 h-64 rounded-xl shadow-xl;
   }
 }

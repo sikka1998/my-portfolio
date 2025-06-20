@@ -1,4 +1,3 @@
-
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
@@ -7,7 +6,12 @@ const config: Config = {
     "./src/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {},
+    // extend: {
+    //   colors: {
+    //     primary: '#2e1ad9',   // Deep blue from the left side
+    //     accent: '#d4f365',    // Bright lime from the right side
+    //   }
+    // },
   },
   plugins: [],
 };

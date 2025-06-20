@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion';
 import profileImg from '../assets/profile.jpg';
+import Button from './Button';
 
 export default function Hero() {
   return (
-    <section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-20 md:mt-3">
-      <div className="flex-1 text-left">
+    <section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-20 md:mt-24">
+      <div className="flex-1 text-left w-full">
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
@@ -23,8 +24,12 @@ export default function Hero() {
             Highly skilled at progressive enhancement, design systems & UI Engineering.
           </p>
           <p className="highlight-text">
-            Over a decade of experience building products for clients across several countries.
+            Empowering fintech startups with solid frontends and smooth user journeys since 2022.
           </p>
+        </div>
+        <div className='mt-8 grid grid-cols-2 md:grid-cols-3 gap-12'>
+          <Button variant='download'>Get CV 📄</Button>
+          <Button>Hire Me</Button>
         </div>
       </div>
 

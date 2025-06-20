@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import Hero from "./Hero";
 import Header from "./Header";
+import Skills from "./Skills";
 
 const tabs = ["About", "Projects", "Skills", "Contact"];
 
@@ -15,13 +16,13 @@ export default function AnimatedTabs() {
           <button
             key={tab}
             onClick={() => setActiveTab(tab)}
-            className="relative px-4 py-2 text-lg font-medium text-gray-700 dark:text-white"
+            className="relative px-4 py-2 text-lg font-medium text-gray-700 dark:text-white cursor-pointer"
           >
             {tab}
             {activeTab === tab && (
               <motion.div
                 layoutId="underline"
-                className="absolute left-0 bottom-0 w-full h-1 bg-blue-500 rounded"
+                className="absolute left-0 bottom-0 w-full h-1 bg-lime-500 rounded"
               />
             )}
           </button>
@@ -33,6 +34,7 @@ export default function AnimatedTabs() {
           <>
             <Header />
             <Hero />
+            <Skills />
           </>
         )}
         {activeTab === "Projects" && <p>This is the Projects section.</p>}
