@@ -20,7 +20,7 @@ const Skills = () => {
       <div className="mt-10 flex flex-col md:flex-row justify-center items-center gap-6">
         <div className="bg-[#2e1ad9] text-gray-900 px-6 py-4 rounded-md shadow-md w-64">
           <h3 className="text-xl font-bold text-white/90">Web Development</h3>
-          <p className="text-sm mt-2 text-white/90">HTML, CSS, JS, React</p>
+          {/* <p className="text-sm mt-2 text-white/90">HTML, CSS, JS, React</p> */}
         </div>
       </div>
 
