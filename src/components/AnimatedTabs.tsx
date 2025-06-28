@@ -7,7 +7,7 @@ type AnimatedTabsProps = {
   };
 };
 
-const tabs = ["About", "Skills", "Projects", "Contact"];
+const tabs = ["About", "Skills", "Experience", "Contact"];
 
 export default function AnimatedTabs({ refs }: AnimatedTabsProps) {
   const [activeTab, setActiveTab] = useState<string>("About");

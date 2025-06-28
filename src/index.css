@@ -6,7 +6,7 @@
 
 /* Global styles */
 @layer base {
-  html, body {
+  body {
     @apply min-h-screen text-white;
     background: linear-gradient(to right, #2e1ad9 67.5%, #d4f365 33%);
     font-family: Roboto, sans-serif;

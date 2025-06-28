@@ -22,12 +22,23 @@ const Contact = () => {
     message: "",
   });
 
+  const [errors, setErrors] = useState({
+    name: false,
+    email: false,
+    message: false,
+  });
+
   const [isLoading, setIsLoading] = useState(false);
 
   //handle form input change
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
+    setErrors({
+      name: false,
+      email: false,
+      message: false,
+    });
     const { name, value } = e.target;
     setFormInput((prev) => ({
       ...prev,
@@ -36,7 +47,6 @@ const Contact = () => {
   };
 
   const sendEmail = () => {
-    //EmailJS Integration
     setIsLoading(true);
     emailjs
       .send(
@@ -60,11 +70,19 @@ const Contact = () => {
     e.preventDefault();
 
     //Form validation
-    if (!formInput.name || !formInput.email || !formInput.message) {
-      toast.error("Please fill in all required fields.");
-      return;
-    }
+    const newErrors = {
+      name: formInput.name.trim() === "",
+      email: formInput.email.trim() === "",
+      message: formInput.message.trim() === "",
+    };
 
+    setErrors(newErrors);
+
+    const hasError = Object.values(newErrors).some((err) => err);
+
+    if (hasError) return;
+
+    //EmailJS Integration
     sendEmail();
   };
 
@@ -114,40 +132,60 @@ const Contact = () => {
 
         {/* Right - Form */}
         <div className="w-full md:w-2/3">
-          <form className="space-y-4" onSubmit={handleSubmit}>
+          <form className="space-y-4 text-start" onSubmit={handleSubmit}>
             <div className="flex flex-col md:flex-row gap-4">
+              <div className="w-full md:w-1/2">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  value={formInput.name}
+                  onChange={handleChange}
+                  className={`w-full p-4 border-2 border-white rounded text-lg mb-1 ${errors.name ? 'border-orange-600' : 'border-gray-300'}`}
+                />
+                {errors.name && (
+                  <p className="text-orange-600 text-sm">Required Field!</p>
+                )}
+              </div>
+
+              <div className="w-full md:w-1/2">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={formInput.email}
+                  onChange={handleChange}
+                  className={`w-full p-4 border-3 border-white rounded text-lg mb-1 ${errors.email ? 'border-orange-600' : 'border-gray-300'}`}
+                />
+                {errors.email && (
+                  <p className="text-orange-600 text-sm">Required Field!</p>
+                )}
+              </div>
+            </div>
+
+            <div>
               <input
                 type="text"
-                placeholder="Name"
-                name="name"
-                value={formInput.name}
-                className="w-full md:w-1/2 p-4 border rounded text-lg"
+                name="subject"
+                placeholder="Subject"
+                value={formInput.subject}
                 onChange={handleChange}
-              />
-              <input
-                type="email"
-                placeholder="Email"
-                name="email"
-                value={formInput.email}
-                className="w-full md:w-1/2 p-4 border rounded text-lg"
-                onChange={handleChange}
+                className={`w-full p-4 border-2 border-white rounded text-lg mb-1`}
               />
             </div>
-            <input
-              type="text"
-              placeholder="Subject"
-              name="subject"
-              value={formInput.subject}
-              className="w-full p-4 border rounded text-lg"
-              onChange={handleChange}
-            />
-            <textarea
-              placeholder="Your Message"
-              name="message"
-              value={formInput.message}
-              className="w-full p-4 border rounded h-40 text-lg"
-              onChange={handleChange}
-            ></textarea>
+
+            <div>
+              <textarea
+                name="message"
+                placeholder="Your Message"
+                value={formInput.message}
+                onChange={handleChange}
+                className={`w-full p-4 border-2 border-white rounded text-lg mb-1 ${errors.message ? 'border-orange-600' : 'border-gray-300'}`}
+              />
+              {errors.message && (
+                <p className="text-orange-600 text-sm">Required Field!</p>
+              )}
+            </div>
             <button
               type="submit"
               disabled={isLoading}
