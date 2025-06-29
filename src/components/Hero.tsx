@@ -1,8 +1,12 @@
-import { motion } from 'framer-motion';
-import profileImg from '../assets/profile.jpg';
-import Button from './Button';
+import { motion } from "framer-motion";
+import profileImg from "../assets/profile.jpg";
+import Button from "./Button";
+import { useState } from "react";
+import HireMeModal from "./HireMeModal";
+import { HiOutlineDocumentDownload } from "react-icons/hi";
 
 export default function Hero() {
+  const [isModalOpen, setModalOpen] = useState(false);
   return (
     <section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-20 md:mt-24">
       <div className="flex-1 text-left w-full">
@@ -12,24 +16,36 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="heading-accent"
         >
-          Frontend<br />Developer.
+          Frontend
+          <br />
+          Developer.
         </motion.h1>
 
         <p className="mt-6 max-w-md text-lg">
-          I like to craft solid and scalable frontend products with great user experiences.
+          I like to craft solid and scalable frontend products with great user
+          experiences.
         </p>
 
         <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
           <p className="highlight-text">
-            Highly skilled at progressive enhancement, design systems & UI Engineering.
+            Highly skilled at progressive enhancement, design systems & UI
+            Engineering.
           </p>
           <p className="highlight-text">
-            Empowering fintech startups with solid frontends and smooth user journeys since 2022.
+            Empowering fintech startups with solid frontends and smooth user
+            journeys since 2022.
           </p>
         </div>
-        <div className='mt-8 grid grid-cols-2 md:grid-cols-3 gap-12'>
-          <Button variant='download'>Get CV 📄</Button>
-          <Button>Hire Me</Button>
+        <div className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-12">
+          <Button variant="download">
+            <HiOutlineDocumentDownload size={30} color="white" />
+            Get CV
+          </Button>
+          <Button setModalOpen={setModalOpen}>Hire Me</Button>
+          <HireMeModal
+            isOpen={isModalOpen}
+            onRequestClose={() => setModalOpen(false)}
+          />
         </div>
       </div>
 

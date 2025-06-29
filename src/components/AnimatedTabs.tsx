@@ -12,7 +12,7 @@ const tabs = ["About", "Skills", "Experience", "Contact"];
 export default function AnimatedTabs({ refs }: AnimatedTabsProps) {
   const [activeTab, setActiveTab] = useState<string>("About");
 
-    const handleTabClick = (tab: string) => {
+  const handleTabClick = (tab: string) => {
     setActiveTab(tab);
     refs[tab]?.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -24,7 +24,7 @@ export default function AnimatedTabs({ refs }: AnimatedTabsProps) {
           <button
             key={tab}
             onClick={() => handleTabClick(tab)}
-            className="relative px-4 py-2 text-lg font-medium text-gray-700 dark:text-white cursor-pointer"
+            className="relative px-4 py-2 text-lg font-medium text-white dark:text-white cursor-pointer"
           >
             {tab}
             {activeTab === tab && (
