@@ -8,15 +8,17 @@ type ContactCardProps = {
 
 const ContactCard = ({ icon, title, content }: ContactCardProps) => {
   return (
-    <div className="flex bg-white shadow-md rounded p-4 items-center">
-      <div className="bg-black text-white p-4 rounded mr-4">
-        {icon}
-      </div>
-      <div>
-        <h4 className="font-bold uppercase text-sm">{title}</h4>
-        <p>{content}</p>
-      </div>
+  <div className={`flex bg-white shadow-md rounded p-4 items-start space-x-4 w-full ${
+    title === 'Address' ? 'hidden md:flex' : ''
+  }`}>
+    <div className="bg-black text-white p-4 rounded flex-shrink-0">
+      {icon}
     </div>
+  <div className="flex flex-col overflow-hidden">
+    <h4 className="font-bold uppercase text-md">{title}</h4>
+    <p className="text-pretty break-words text-[14px] text-gray-700">{content}</p>
+  </div>
+</div>
   );
 };
 

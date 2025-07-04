@@ -7,12 +7,24 @@
 /* Global styles */
 @layer base {
   body {
-    @apply min-h-screen text-white;
-    background: linear-gradient(to right, #2e1ad9 67.5%, #d4f365 33%);
-    font-family: Roboto, sans-serif;
-  }
+  @apply min-h-screen text-white w-full overflow-x-hidden;
+  background: linear-gradient(to right, #2e1ad9 67.5%, #d4f365 32.5%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  font-family: 'Roboto', sans-serif;
+}
 
-  h1, h2, h3, h4 {
+@media (max-width: 767px) {
+  body {
+    background: linear-gradient(to bottom, #2e1ad9 60%, #d4f365 40%);
+  }
+}
+
+
+  h1,
+  h2,
+  h3,
+  h4 {
     @apply font-bold;
   }
 

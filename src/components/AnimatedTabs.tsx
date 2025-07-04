@@ -19,12 +19,12 @@ export default function AnimatedTabs({ refs }: AnimatedTabsProps) {
 
   return (
     <div className="flex flex-col items-center mt-10">
-      <div className="flex space-x-6 relative">
+      <div className="flex md:space-x-6 relative">
         {tabs.map((tab) => (
           <button
             key={tab}
             onClick={() => handleTabClick(tab)}
-            className="relative px-4 py-2 text-lg font-medium text-white dark:text-white cursor-pointer"
+            className="relative px-4 py-2 text-sm lg:text-lg font-medium text-white dark:text-white cursor-pointer"
           >
             {tab}
             {activeTab === tab && (

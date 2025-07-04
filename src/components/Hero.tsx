@@ -4,8 +4,10 @@ import Button from "./Button";
 import { useState } from "react";
 import HireMeModal from "./HireMeModal";
 import { HiOutlineDocumentDownload } from "react-icons/hi";
+import { useTypewriter } from "../custom_hooks/useTypeWriter";
 
 export default function Hero() {
+  const typedText = useTypewriter(["Frontend", "Developer."], 80, 3000);
   const [isModalOpen, setModalOpen] = useState(false);
   return (
     <section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-20 md:mt-24">
@@ -14,11 +16,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="heading-accent"
+          className="heading-accent text-[24px] md:text-3xl whitespace-pre-line leading-snug 
+             w-[14rem] md:w-[18rem] min-h-[5rem] inline-block"
         >
-          Frontend
-          <br />
-          Developer.
+          {typedText}
+          <span className="animate-pulse">|</span>
         </motion.h1>
 
         <p className="mt-6 max-w-md text-lg">
