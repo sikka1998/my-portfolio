@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, type RefObject } from 'react';
 import './App.css'
 import AnimatedTabs from './components/AnimatedTabs'
 import Header from './components/Header'

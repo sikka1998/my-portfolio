@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 type AnimatedTabsProps = {
   refs: {
-    [key: string]: React.RefObject<HTMLElement>;
+    [key: string]: React.RefObject<HTMLDivElement | null>;
   };
 };
 
@@ -18,7 +18,8 @@ export default function AnimatedTabs({ refs }: AnimatedTabsProps) {
   };
 
   return (
-    <div className="flex flex-col items-center mt-10">
+    <header className="fixed top-0 left-0 w-full bg-gradient-to-r from-[#2e1ad9]/80 to-[#d4f365]/20 text-white z-50 shadow-md">
+    <div className="flex flex-col items-center mt-5">
       <div className="flex md:space-x-6 relative">
         {tabs.map((tab) => (
           <button
@@ -37,5 +38,6 @@ export default function AnimatedTabs({ refs }: AnimatedTabsProps) {
         ))}
       </div>
     </div>
+    </header>
   );
 }

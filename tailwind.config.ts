@@ -1,17 +1,13 @@
-import type { Config } from 'tailwindcss';
+import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}"
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    // extend: {
-    //   colors: {
-    //     primary: '#2e1ad9',   // Deep blue from the left side
-    //     accent: '#d4f365',    // Bright lime from the right side
-    //   }
-    // },
+    extend: {
+      backgroundImage: {
+        "header-gradient": `linear-gradient(to right, #2e1ad9 67.5%, #d4f365 32.5%)`,
+      },
+    },
   },
   plugins: [],
 };

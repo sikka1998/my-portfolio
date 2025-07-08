@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
-import profileImg from "../assets/profile.jpg";
+import profileImg from "../assets/profileq.jpg";
 import Button from "./Button";
 import { useState } from "react";
 import HireMeModal from "./HireMeModal";
 import { HiOutlineDocumentDownload } from "react-icons/hi";
+import { FaHandshake } from "react-icons/fa";
 import { useTypewriter } from "../custom_hooks/useTypeWriter";
 
 export default function Hero() {
@@ -40,10 +41,12 @@ export default function Hero() {
         </div>
         <div className="mt-8 grid grid-cols-2 md:grid-cols-3 gap-12">
           <Button variant="download">
-            <HiOutlineDocumentDownload size={30} color="white" />
+            <HiOutlineDocumentDownload size={24} color="white" />
             Get CV
           </Button>
-          <Button setModalOpen={setModalOpen}>Hire Me</Button>
+          <Button setModalOpen={setModalOpen}>
+            <FaHandshake size={24} color="white" />
+            Hire Me</Button>
           <HireMeModal
             isOpen={isModalOpen}
             onRequestClose={() => setModalOpen(false)}
