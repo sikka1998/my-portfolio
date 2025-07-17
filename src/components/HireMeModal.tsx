@@ -1,4 +1,3 @@
-// components/HireMeModal.tsx
 import Modal from "react-modal";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
@@ -32,7 +31,7 @@ export default function HireMeModal({
       ) {
         setHasBooked(true);
         toast.success("✅ Your meeting has been scheduled!");
-        onRequestClose(); // Optional: close modal after booking
+        onRequestClose();
       }
     }
     window.addEventListener("message", handleMessage);
@@ -57,7 +56,7 @@ export default function HireMeModal({
         </button>
       </div>
 
-      {isLoading && (
+      {isLoading || hasBooked && (
         <div className="flex justify-center items-center h-60">
           <span className="text-lg font-semibold text-blue-600 animate-pulse">
             Loading Calendly...
