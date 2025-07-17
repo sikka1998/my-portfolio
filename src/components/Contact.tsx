@@ -93,7 +93,7 @@ const Contact = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <h5 className="text-sm uppercase text-center text-[#2e1ad9] sm:text-white">Have a question?</h5>
+      <h5 className="text-sm uppercase text-center text-[#2e1ad9] sm:text-white">Want to Know More?</h5>
       <p className="mt-1 text-5xl font-bold mb-4 text-center text-[#2e1ad9] sm:text-white">SAY HELLO!</p>
       <motion.section className="flex flex-col justify-center items-center md:flex-row md:items-start gap-7 p-10">
         {/* Left - Contact Info */}

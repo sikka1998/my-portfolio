@@ -5,14 +5,14 @@ const Education = () => {
 
     return(
         <div className="relative pl-6 border-l-2 border-gray-300">
-          <h3 className="text-2xl font-semibold mb-6 text-lime-500">Education</h3>
+          <h3 className="text-2xl font-semibold mb-6 text-white border-1 border-white-900">Education</h3>
           <div className='mb-6'>
           <TimelineCard
             year="2020"
             title="Bachelor’s Degree"
             description="Electronics & Communication - Karpagam College Of Engineering"
             icon={<FaGraduationCap size={12} />}
-            colorClass="bg-indigo-600"
+            colorClass="bg-lime-500"
           />
           </div>
           <div className='mb-6'>
@@ -21,7 +21,7 @@ const Education = () => {
             title="Higher Secondary"
             description="KCM Matriculation School"
             icon={<FaGraduationCap size={12} />}
-            colorClass="bg-indigo-600"
+            colorClass="bg-lime-500"
           />
           </div>
         </div>

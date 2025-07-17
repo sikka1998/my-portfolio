@@ -11,7 +11,7 @@ interface TimelineCardProps {
   colorClass?: string;
 }
 
-const TimelineCard = ({ year, title, description, icon, colorClass = "bg-indigo-600" }: TimelineCardProps) => {
+const TimelineCard = ({ year, title, description, icon, colorClass = "bg-lime-500" }: TimelineCardProps) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({ threshold: 0.3 });
 
@@ -24,7 +24,11 @@ const TimelineCard = ({ year, title, description, icon, colorClass = "bg-indigo-
       ref={ref}
       initial={{ opacity: 0, y: 50 }}
       animate={controls}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
+      whileHover={{
+        scale: 1.05,
+        backgroundColor: "#fff",
+      }}
       className="relative bg-white p-6 rounded-lg shadow-md border-l-4 border-gray-300"
     >
       {/* Icon Dot */}

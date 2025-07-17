@@ -57,6 +57,7 @@ export default function Hero() {
       <div className="flex-1 flex justify-center mt-10 md:mt-0">
         <motion.img
           src={profileImg}
+          loading="lazy"
           alt="Profile"
           className="profile-img"
           initial={{ opacity: 0, scale: 0.8 }}
