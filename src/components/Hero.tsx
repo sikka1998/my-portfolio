@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import profileImg from "../assets/profilez.png";
+import profileImg from "../assets/Profilez.png";
 import Button from "./Button";
 import { useState } from "react";
 import HireMeModal from "./HireMeModal";
