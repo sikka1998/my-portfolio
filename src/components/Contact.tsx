@@ -95,7 +95,7 @@ const Contact = () => {
     >
       <h5 className="text-sm uppercase text-center text-[#2e1ad9] sm:text-white">Want to Know More?</h5>
       <p className="mt-1 text-5xl font-bold mb-4 text-center text-[#2e1ad9] sm:text-white">SAY HELLO!</p>
-      <motion.section className="flex flex-col justify-center items-center md:flex-row md:items-start gap-7 p-10">
+      <motion.section className="flex flex-col justify-center items-center md:flex-row md:items-start gap-7 p-10" id="Contact">
         {/* Left - Contact Info */}
         <div className="flex flex-row gap-5 px-10 flex-wrap sm:w-1/2 md:flex-col md:w-1/2 text-black text-start">
           {/* Email */}
@@ -122,9 +122,9 @@ const Contact = () => {
             title="Address"
             content={
               <>
-                HSR Extension,
+                Chennai, Tamil Nadu
                 <br />
-                Bengaluru, Karnataka
+                India
               </>
             }
           />

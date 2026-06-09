@@ -29,7 +29,7 @@ const TimelineCard = ({ year, title, description, icon, colorClass = "bg-lime-50
         scale: 1.05,
         backgroundColor: "#fff",
       }}
-      className="relative bg-white p-6 rounded-lg shadow-md border-l-4 border-gray-300"
+      className="relative bg-white p-6 rounded-lg shadow-md border-l-4 border-gray-300 mb-6"
     >
       {/* Icon Dot */}
       <div className={`absolute -left-7 top-6 w-6 h-6 ${colorClass} text-white rounded-full flex items-center justify-center shadow`}>

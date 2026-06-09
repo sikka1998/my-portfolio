@@ -8,8 +8,8 @@ type ButtonProp = {
 
 const downloadCV = () => {
   const link = document.createElement("a");
-  link.href = "/Mohamed_Sikkander_FE_Resume_TS.pdf";
-  link.download = "Mohamed_Sikkander_FE_Resume.pdf";
+  link.href = "/Mohamed_Sikkander_FE_React.pdf";
+  link.download = "Mohamed_Sikkander_FE_React_Resume.pdf";
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

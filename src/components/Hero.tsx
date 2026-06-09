@@ -11,7 +11,7 @@ export default function Hero() {
   const typedText = useTypewriter(["Frontend", "Developer."], 80, 3000);
   const [isModalOpen, setModalOpen] = useState(false);
   return (
-    <section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-20 md:mt-24">
+    <section className="flex flex-col md:flex-row items-center justify-between px-6 md:px-20 md:mt-24" id="About">
       <div className="flex-1 text-left w-full">
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
