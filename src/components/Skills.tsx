@@ -3,7 +3,7 @@ import { SiTypescript } from "react-icons/si";
 
 const Skills = () => {
   return (
-    <section className="bg-white/85 text-white py-8 px-4 text-center rounded-xl mt-10" id="Skills">
+    <section className="bg-white/85 text-white py-8 px-4 text-center rounded-xl mt-36" id="Skills">
       {/* Scroll icon & code tag */}
       <div className="flex flex-col items-center">
         <div className="w-5 h-10 border-2 border-[#2e1ad9] rounded-full mb-4 relative">

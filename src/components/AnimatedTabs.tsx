@@ -24,7 +24,7 @@ export default function AnimatedTabs({ refs, activeSession = "About" }: Animated
   }, [activeSession])
 
   return (
-    <header className="fixed top-0 left-0 w-full bg-gradient-to-r from-[#2e1ad9]/80 to-[#d4f365]/20 text-white z-50 shadow-md">
+    <header className="fixed top-0 left-0 w-full h-18 bg-gradient-to-r from-[#2e1ad9]/80 to-[#d4f365]/20 text-white z-50 shadow-md">
       <div className="flex flex-col items-center mt-5">
         <div className="flex md:space-x-6 relative">
           {tabs.map((tab) => (
