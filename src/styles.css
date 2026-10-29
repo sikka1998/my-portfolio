@@ -1,0 +1,167 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+@custom-variant header-clear (&:where([data-header-tone="clear"] *));
+
+:root {
+  --background: #eef0f2;
+  --foreground: #111315;
+  --card: #f6f7f8;
+  --muted: #e3e6e9;
+  --muted-foreground: #565a60;
+  --primary: #b3244a;
+  --primary-foreground: #fff5f7;
+  --border: rgb(17 19 21 / 0.12);
+  --ring: #b3244a;
+  --radius: 1.25rem;
+  --header-height: 4.5rem;
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --background: #141414;
+  --foreground: #eeeeec;
+  --card: #1b1b1b;
+  --muted: #232323;
+  --muted-foreground: #a1a3a6;
+  --primary: #f0587a;
+  --primary-foreground: #1b0910;
+  --border: rgb(238 238 236 / 0.12);
+  --ring: #f0587a;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --radius-lg: var(--radius);
+  --font-sans: "Mona Sans Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-hand: "Caveat Variable", "Segoe Print", "Bradley Hand", cursive;
+}
+
+@layer base {
+  * { border-color: var(--border); }
+  html {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body { min-height: 100dvh; overflow-x: clip; }
+  ::selection { background: var(--primary); color: var(--primary-foreground); }
+  :focus-visible { outline: 2px solid var(--ring); outline-offset: 3px; border-radius: 6px; }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-stopped { overflow: hidden; }
+}
+
+@utility display {
+  font-weight: 780;
+  font-stretch: 112%;
+  letter-spacing: -0.045em;
+  line-height: 0.9;
+}
+
+@utility display-wide {
+  font-weight: 820;
+  font-stretch: 125%;
+  letter-spacing: -0.05em;
+  line-height: 0.86;
+}
+
+@utility hand {
+  font-family: var(--font-hand);
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Hero cover ------------------------------------------------------------- */
+.cover {
+  background: radial-gradient(120% 90% at 50% 20%, #223129 0%, #182420 45%, #0f1714 100%);
+}
+.cover-veil {
+  background: linear-gradient(to top, rgba(10, 16, 13, 0.92) 0%, rgba(10, 16, 13, 0.35) 34%, transparent 60%);
+}
+.cover-trails { transform-origin: 50% 18%; }
+@media (prefers-reduced-motion: no-preference) {
+  .cover-trails.is-turning { animation: cover-turn 900s linear infinite; }
+}
+@keyframes cover-turn { to { transform: rotate(360deg); } }
+
+.cover-name {
+  font-size: 7.9vw;
+  font-weight: 820;
+  font-stretch: 125%;
+  letter-spacing: -0.04em;
+  line-height: 0.86;
+  white-space: nowrap;
+}
+@media (max-width: 767px) {
+  .cover-name { font-size: 14vw; white-space: normal; line-height: 0.9; }
+}
+
+.note { color: #fff1d6; text-shadow: 0 0 18px rgba(255, 220, 160, 0.45); white-space: nowrap; }
+.note small { display: block; font-size: clamp(0.9rem, 1.3vw, 1.15rem); color: #ffd79a; font-weight: 500; }
+.note span { font-size: clamp(1.25rem, 2.2vw, 2.1rem); font-weight: 600; line-height: 1; }
+.note-arrows path { fill: none; stroke: #ffe7bf; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 6px rgba(255, 220, 160, 0.5)); }
+
+.cover-subject { filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.6)); }
+
+/* Viewfinder */
+.finder-mark { position: absolute; width: 28px; height: 28px; border: 2px solid #f4f4f1; }
+.finder-mark.tl { top: 0; left: 0; border-right: 0; border-bottom: 0; }
+.finder-mark.tr { top: 0; right: 0; border-left: 0; border-bottom: 0; }
+.finder-mark.bl { bottom: 0; left: 0; border-right: 0; border-top: 0; }
+.finder-mark.br { bottom: 0; right: 0; border-left: 0; border-top: 0; }
+.finder-text { font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: #d8d8d4; }
+.focus-box { width: 54px; height: 54px; border: 2px solid rgba(244, 244, 241, 0.9); }
+.focus-box.is-locked { border-color: #9be36d; }
+
+/* Work: the period in "Selected work." opens like an aperture onto the first sheet. */
+.work-veil { --iris-x: 50%; --iris-y: 50%; --iris-r: 0px; }
+.work-sequence[data-cinematic="true"] .work-veil {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  height: 100svh;
+  margin-bottom: -100svh;
+  overflow: clip;
+  pointer-events: none;
+  -webkit-mask-image: radial-gradient(circle at var(--iris-x) var(--iris-y), transparent var(--iris-r), #000 calc(var(--iris-r) + 1px));
+  mask-image: radial-gradient(circle at var(--iris-x) var(--iris-y), transparent var(--iris-r), #000 calc(var(--iris-r) + 1px));
+}
+@media (min-width: 768px) and (min-height: 640px) {
+  .work-stack .sheet { position: sticky; top: 0; margin-bottom: 42svh; }
+  .work-sequence[data-cinematic="true"] .sheet[data-index="0"] { margin-bottom: 142svh; }
+}
+
+/* Marquee --------------------------------------------------------------- */
+.marquee-track { display: flex; width: max-content; animation: marquee 48s linear infinite; }
+@keyframes marquee { to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .marquee-track { animation: none; } }
+
+/* Footer rings ---------------------------------------------------------- */
+.ring { transform-origin: 50% 50%; animation: ring-turn var(--ring-duration, 120s) linear infinite; }
+.ring.reverse { animation-direction: reverse; }
+@media (prefers-reduced-motion: reduce) { .ring { animation: none; } }
+@keyframes ring-turn { to { transform: rotate(360deg); } }
+
+/* Mock screens ---------------------------------------------------------- */
+.mock { font-size: 11px; line-height: 1.35; }
+.mock-row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.mock-bar { height: 8px; border-radius: 999px; background: currentColor; opacity: 0.18; }

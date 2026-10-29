@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Mohamed Sikkander - CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+  @page { size: A4; margin: 0; }
+  :root { --blue:#3F6FE0; --band:#E8EEFC; --ink:#111; --muted:#4a4a4a; --rule:#c9ced8; --tile:#eef1f8; }
+  * { box-sizing:border-box; margin:0; padding:0; }
+  html, body { width:210mm; height:297mm; background:#fff; color:var(--ink); font-family:"Poppins", system-ui, sans-serif; font-size:7.7pt; line-height:1.3; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .page { width:210mm; height:297mm; padding:7mm 8mm 6mm 8mm; overflow:hidden; display:flex; flex-direction:column; }
+  a { color:inherit; }
+
+  /* Header */
+  .head { display:grid; grid-template-columns:minmax(0,1fr) max-content 21mm; gap:6mm; align-items:start; }
+  .name { font-size:22.5pt; font-weight:800; letter-spacing:-0.015em; white-space:nowrap; line-height:1; margin-top:1mm; }
+  .role { font-size:8.8pt; white-space:nowrap; font-weight:600; margin-top:2.5mm; letter-spacing:0.01em; }
+  .role b { color:var(--blue); font-weight:600; }
+  .contacts { list-style:none; font-size:8.3pt; margin-top:1mm; }
+  .contacts li { display:flex; align-items:center; gap:2mm; margin-bottom:0.9mm; white-space:nowrap; }
+  .contacts .ic { width:5mm; height:5mm; border-radius:50%; border:1px solid #777; display:grid; place-items:center; flex:none; }
+  .contacts .ic svg { width:2.9mm; height:2.9mm; stroke:#333; fill:none; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .contacts a { text-decoration:underline; text-underline-offset:2px; }
+  .qr { width:21mm; height:21mm; margin-top:1mm; justify-self:end; }
+
+  /* Summary band */
+  .band { position:relative; margin-top:3.5mm; background:var(--band); padding:3mm 5mm 3mm 3.5mm; display:grid; grid-template-columns:25mm 1fr; gap:4.5mm; align-items:center; }
+  .band::before { content:""; position:absolute; left:2mm; top:-1mm; width:9mm; height:1.1mm; background:var(--blue); border-radius:1mm; }
+  .band img { width:25mm; height:25mm; border-radius:50%; object-fit:cover; }
+  .band p { font-size:8.4pt; line-height:1.36; font-weight:300; color:#1c1c1c; }
+  .band p b { font-weight:500; }
+
+  /* Columns */
+  .cols { display:grid; grid-template-columns:1fr 57mm; gap:6mm; margin-top:3.5mm; }
+  h2 { font-size:11pt; font-weight:500; letter-spacing:0.02em; text-transform:uppercase; position:relative; padding-bottom:1.8mm; margin-bottom:3mm; border-bottom:1px solid var(--rule); }
+  h2::after { content:""; position:absolute; bottom:-0.7mm; height:1.3mm; width:12mm; background:var(--blue); border-radius:1mm; }
+  .left h2::after { left:0; }
+  .right h2 { text-align:center; }
+  .right h2::after { left:50%; transform:translateX(-50%); }
+  .right h2.sentence { text-transform:none; font-size:11pt; }
+
+  /* Timeline of roles */
+  .jobs { position:relative; }
+  .jobs::before { content:""; position:absolute; left:3.6mm; top:9mm; bottom:4mm; width:0.5mm; background:#dbe3f5; border-radius:1mm; }
+  .job { position:relative; padding-left:11mm; margin-bottom:2.4mm; }
+  .job .logo { position:absolute; left:0; top:0.3mm; width:7.4mm; height:7.4mm; border-radius:1.6mm; display:grid; place-items:center; overflow:hidden; background:#fff; }
+  .job .logo img { width:100%; height:100%; object-fit:contain; }
+  .job .logo.mono { color:#fff; font-weight:700; font-size:8pt; letter-spacing:0.02em; }
+  .job h3 { font-size:9.6pt; font-weight:600; line-height:1.2; }
+  .job .sub { font-size:8pt; color:var(--muted); margin-top:0.6mm; }
+  .job .dates { font-size:8pt; margin:0.8mm 0 1.5mm -11mm; }
+  .row { display:grid; grid-template-columns:29mm 1fr; gap:3mm; margin-bottom:1mm; }
+  .row .label { font-weight:500; font-size:8.3pt; line-height:1.3; padding-left:5mm; position:relative; }
+  .row .label::before { content:""; position:absolute; left:0; top:1.4mm; width:2.2mm; height:2.2mm; border-radius:50%; background:var(--blue); }
+  .row ul { list-style:none; }
+  .row li { position:relative; padding-left:4mm; margin-bottom:0.8mm; font-weight:300; color:#1a1a1a; }
+  .row li::before { content:""; position:absolute; left:0.6mm; top:1.7mm; width:1.4mm; height:1.4mm; border-radius:50%; background:var(--blue); }
+  .row .impact { font-weight:500; margin-top:0.5mm; }
+
+  /* Right column */
+  .exp { display:grid; grid-template-columns:6.5mm 1fr; gap:2.2mm; margin-bottom:1.7mm; }
+  .exp svg { width:6mm; height:6mm; stroke:var(--blue); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; margin-top:0.5mm; }
+  .exp h4 { font-size:8.6pt; font-weight:500; margin-bottom:0.5mm; }
+  .exp p { font-size:7.6pt; font-weight:300; line-height:1.32; color:#222; }
+  .exp .grid { display:grid; grid-template-columns:repeat(2, auto); gap:0.3mm 3mm; font-size:7.6pt; font-weight:300; }
+  section + section { margin-top:2.4mm; }
+  .edu { display:grid; grid-template-columns:7mm 1fr; gap:2.5mm; margin-bottom:1.5mm; }
+  .edu .logo { width:7mm; height:7mm; border-radius:50%; overflow:hidden; display:grid; place-items:center; background:var(--tile); }
+  .edu .logo img { width:100%; height:100%; object-fit:cover; }
+  .edu h4 { font-size:8.6pt; font-weight:500; }
+  .edu p { font-size:7.8pt; font-weight:300; color:#222; }
+  .recog p { font-size:7.8pt; margin-bottom:1.2mm; font-weight:300; }
+  .recog b { display:block; font-weight:600; font-size:8pt; }
+  .interests { display:grid; grid-template-columns:repeat(4, 1fr); gap:1.5mm; text-align:center; font-size:7.4pt; color:#333; }
+  .interests .tile { width:9mm; height:9mm; margin:0 auto 0.8mm; border-radius:2.5mm; background:var(--tile); display:grid; place-items:center; }
+  .interests svg { width:5.6mm; height:5.6mm; stroke:var(--blue); fill:none; stroke-width:1.5; stroke-linecap:round; stroke-linejoin:round; }
+  .foot { height:1.2mm; background:var(--blue); border-radius:1mm; margin-top:3mm; }
+</style>
+</head>
+<body>
+<div class="page">
+  <header class="head">
+    <div>
+      <h1 class="name">MOHAMED SIKKANDER</h1>
+      <p class="role">FULL STACK ENGINEER <b>·</b> REACT <b>·</b> PYTHON / FASTAPI <b>·</b> GCP</p>
+    </div>
+    <ul class="contacts">
+      <li><span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M16 12v1.5a2.5 2.5 0 0 0 5 0V12a9 9 0 1 0-3.5 7.1"/></svg></span>sikkander1998@gmail.com</li>
+      <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7l.6 3.2a2 2 0 0 1-.5 1.8L8 10a16 16 0 0 0 6 6l1.3-1.2a2 2 0 0 1 1.8-.5l3.2.6a2 2 0 0 1 1.7 2z"/></svg></span>+91 70105 32010</li>
+      <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></span><a href="https://www.linkedin.com/in/mohamed-sikkander-iqbal">linkedin.com/in/mohamed-sikkander-iqbal</a></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M12 22s7-6.5 7-12a7 7 0 1 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="10" r="2.5"/></svg></span>Chennai, India</li>
+      <li><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18M8 4v5"/></svg></span><a href="https://sikka-portfolio.netlify.app/">sikka-portfolio.netlify.app</a></li>
+      <li><span class="ic"><svg viewBox="0 0 24 24"><path d="M9 19c-4 1.5-4-2-6-2m12 4v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1-.3-3.4 1.3a11.7 11.7 0 0 0-6 0C6.8 2.8 5.8 3.1 5.8 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4.4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg></span><a href="https://github.com/sikka1998/">github.com/sikka1998</a></li>
+    </ul>
+    <img class="qr" src="assets/qr.png" alt="QR code linking to the portfolio" />
+  </header>
+
+  <section class="band">
+    <img src="assets/photo.jpg" alt="Mohamed Sikkander" />
+    <p>Full stack engineer with <b>4+ years</b> building scalable, high-performance web products with React, TypeScript, Python/FastAPI and GCP. At <b>CustomerLabs</b> I build the first-party data platform end to end: a new TikTok source from React UI to Pub/Sub pipeline, a tracker migration across <b>300+ client sites</b> with zero data loss, and the Morning Coffee analytics dashboard.</p>
+  </section>
+
+  <div class="cols">
+    <div class="left">
+      <h2>Work Experience</h2>
+      <div class="jobs">
+        <article class="job">
+          <span class="logo"><img src="assets/customerlabs.png" alt="" /></span>
+          <h3>CustomerLabs | Associate Software Engineer, Full Stack</h3>
+          <p class="sub">First-party data platform (CDP) for ecommerce and lead-gen brands · React, FastAPI, GCP</p>
+          <p class="dates">2026 - Present</p>
+          <div class="row">
+            <div class="label">Sources &amp; Pipelines</div>
+            <ul>
+              <li>Built and released the TikTok Lead Forms source end to end: React configuration UI, FastAPI APIs and the Cloud Functions / Pub/Sub ingestion workflow. Adopted by 10+ clients.</li>
+              <li>Owned the AppBrew (Shopify mobile-app builder) tracker from design to release: event schema, ingestion endpoints and GCP processing, live with the first 2 brands.</li>
+            </ul>
+          </div>
+          <div class="row">
+            <div class="label">Tracker &amp; CDN</div>
+            <ul>
+              <li>Drove the migration of the first-party website tracker from v1 to v2 across 300+ live client sites, preserving every event schema with zero data loss during cutover.</li>
+              <li>Moved vendor script loading onto CustomerLabs' own CDN host, improving caching, load reliability and resilience to tracking restrictions.</li>
+            </ul>
+          </div>
+          <div class="row">
+            <div class="label">Frontend &amp; Analytics</div>
+            <ul>
+              <li>Built the full frontend of Morning Coffee, an in-app analytics dashboard unifying Google Ads, Meta Ads and Shopify metrics into one daily snapshot with reusable chart components.</li>
+              <li>Rebuilt the Audiences UI for v2 in React without disrupting client workflows; built the Astro marketing site and webinar pages (97 Lighthouse performance, 100 SEO).</li>
+              <li class="impact" style="padding-left:0; list-style:none">Impact: 10+ clients on the new source, 300+ sites migrated with zero data loss, 25+ production tickets resolved.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <span class="logo"><img src="assets/jeeva.png" alt="" /></span>
+          <h3>Jeeva AI | Senior Frontend Developer</h3>
+          <p class="sub">AI-powered CRM and lead generation platform with data provider integrations and AI playbooks</p>
+          <p class="dates">2025 - 2026</p>
+          <div class="row">
+            <div class="label">Performance &amp; Scale</div>
+            <ul>
+              <li>Led critical frontend features end to end, improving application performance by 35% with code splitting, lazy loading and memoization.</li>
+              <li>Virtualized large datasets with react-window and integrated third-party data platforms through secure iframe communication.</li>
+              <li>Handled AWS S3 and EC2 assets and deployments with DevOps; added Jest unit tests that cut production regressions.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="job">
+          <span class="logo"><img src="assets/trustt.png" alt="" /></span>
+          <h3>Trustt (formerly Novopay) | Frontend Developer</h3>
+          <p class="sub">Loan management system for HDFC Bank's NBFC lending platform: foreclosure, part-payment and repayment flows</p>
+          <p class="dates">2022 - 2025</p>
+          <div class="row">
+            <div class="label">Fintech Frontends &amp; Architecture</div>
+            <ul>
+              <li>Built and scaled high-traffic fintech frontends with React, Redux Toolkit and TypeScript; optimised load times with caching, storage and rendering strategies.</li>
+              <li>Designed the reusable component architecture other teams built on; led code reviews and mentored junior developers.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <aside class="right">
+      <section>
+        <h2>Role-Relevant Expertise</h2>
+        <div class="exp">
+          <svg viewBox="0 0 24 24"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M14 4l-4 16"/></svg>
+          <div><h4>Frontend</h4>
+            <div class="grid"><span>React</span><span>TypeScript</span><span>Redux Toolkit</span><span>Tailwind CSS</span><span>Astro</span><span>HTML / CSS / JS</span></div></div>
+        </div>
+        <div class="exp">
+          <svg viewBox="0 0 24 24"><path d="M7 18a4 4 0 0 1-.6-8A6 6 0 0 1 18 9a4 4 0 0 1 0 9H7z"/><path d="M12 12v6M9.5 15.5L12 18l2.5-2.5"/></svg>
+          <div><h4>Backend &amp; cloud</h4>
+            <p>Python, FastAPI, Node.js, REST APIs<br/>GCP Cloud Functions, Pub/Sub, Workflows<br/>Event-driven ingestion pipelines · AWS S3, EC2</p></div>
+        </div>
+        <div class="exp">
+          <svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="2"/><circle cx="19" cy="6" r="2"/><circle cx="19" cy="18" r="2"/><path d="M7 11l10-4M7 13l10 4"/></svg>
+          <div><h4>Tracking &amp; data platform</h4>
+            <p>First-party tracking scripts on 300+ sites<br/>CDN script delivery, versioned migrations<br/>Audience segmentation and sync<br/>TikTok, Meta, Google Ads, Shopify integrations</p></div>
+        </div>
+        <div class="exp">
+          <svg viewBox="0 0 24 24"><path d="M4 15a8 8 0 0 1 16 0"/><path d="M12 15l4-5"/><path d="M2 19h20"/></svg>
+          <div><h4>Performance &amp; architecture</h4>
+            <p>Code splitting, lazy loading, memoization<br/>Virtualization for large datasets<br/>Core Web Vitals, Lighthouse tuning<br/>Reusable component systems</p></div>
+        </div>
+        <div class="exp">
+          <svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>
+          <div><h4>Quality &amp; tooling</h4>
+            <p>Jest unit testing, code reviews<br/>Git, Vite, Webpack, ESLint, CI/CD</p></div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="edu">
+          <span class="logo"><img src="assets/kce.png" alt="" /></span>
+          <div><h4>B.E. Electronics &amp; Communication</h4><p>Karpagam College of Engineering<br/>Coimbatore, 2016-2020 · CGPA 7.6</p></div>
+        </div>
+      </section>
+
+      <section class="recog">
+        <h2>Certifications</h2>
+        <p><b>Fellowship in Software Development, 2025</b>Full stack track</p>
+        <p><b>Programming with JavaScript, 2024</b>Meta</p>
+        <p><b>Web Development Bootcamp, 2023</b>Udemy</p>
+      </section>
+
+      <section>
+        <h2 class="sentence">Other Interests</h2>
+        <div class="interests">
+          <div><div class="tile"><svg viewBox="0 0 24 24"><path d="M6 8h12a4 4 0 0 1 4 4v3a3 3 0 0 1-5.4 1.8L15 15H9l-1.6 1.8A3 3 0 0 1 2 15v-3a4 4 0 0 1 4-4z"/><path d="M7 12h3M8.5 10.5v3M16 11h.01M18 13h.01"/></svg></div>Gaming</div>
+          <div><div class="tile"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9" y="9" width="6" height="6"/><path d="M9 2v4M15 2v4M9 18v4M15 18v4M2 9h4M2 15h4M18 9h4M18 15h4"/></svg></div>Technology</div>
+          <div><div class="tile"><svg viewBox="0 0 24 24"><path d="M3 10v4M6 8v8M18 8v8M21 10v4M6 12h12"/></svg></div>Fitness</div>
+          <div><div class="tile"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7l4 3-1.5 4.5h-5L8 10z"/><path d="M12 3v4M8 10l-4-1M16 10l4-1M9.5 14.5L7 18M14.5 14.5L17 18"/></svg></div>Football</div>
+        </div>
+      </section>
+    </aside>
+  </div>
+  <div class="foot"></div>
+</div>
+</body>
+</html>
