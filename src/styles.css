@@ -121,6 +121,8 @@
 .note-arrows path { fill: none; stroke: #ffe7bf; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; filter: drop-shadow(0 0 6px rgba(255, 220, 160, 0.5)); }
 
 .cover-subject { filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.6)); }
+/* On wide, short screens the Arm note would sit on the role line, so it steps aside. */
+@media (min-aspect-ratio: 1.8) { .note-arm, .arrow-arm { display: none; } }
 
 /* Viewfinder */
 .finder-mark { position: absolute; width: 28px; height: 28px; border: 2px solid #f4f4f1; }

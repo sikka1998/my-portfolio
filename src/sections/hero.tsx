@@ -173,7 +173,7 @@ export function Hero() {
               {hero.notes.map((note) => {
                 const { line, head } = arrowPath(note)
                 return (
-                  <g key={note.id}>
+                  <g key={note.id} className={`arrow-${note.id}`}>
                     <path d={line} />
                     <path d={head} />
                   </g>
@@ -182,7 +182,7 @@ export function Hero() {
             </svg>
             <dl className="absolute inset-0">
               {hero.notes.map((note) => (
-                <div key={note.id} className={`note hand absolute ${note.side === 'left' ? 'right-[105%] text-right' : 'left-[105%]'}`} style={{ top: `${note.top}%` }}>
+                <div key={note.id} className={`note note-${note.id} hand absolute ${note.side === 'left' ? 'right-[105%] text-right' : 'left-[105%]'}`} style={{ top: `${note.top}%` }}>
                   <dt><small>{note.label}</small></dt>
                   <dd><span>{note.text}</span></dd>
                 </div>
