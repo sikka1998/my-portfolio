@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+.claude/
+
+# Design scratch and resume source files kept next to the project
+design/
+/Mohamed_Sikkander_Full_Stack.*
+/Mohamed_Sikkander_CV.pdf
+resume-source/cv.pdf
+resume-source/cv.png
+resume-source/band-crop.png
